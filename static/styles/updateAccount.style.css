@@ -85,3 +85,19 @@ button[type="submit"]:hover {
     transform: scale(1.01);
     transition: all .5s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    #container {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    form input {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}

@@ -26,3 +26,15 @@ main {
         gap: 1rem;
     }
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

@@ -26,7 +26,12 @@
     form{
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        width: 20%;
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+        @media (min-width: 769px) {
+            width: 20%;
+        }
         padding: 1rem;
         border-radius: 1rem;
         display: flex;
