@@ -19,6 +19,7 @@ func main() {
 	http.Handle("/", fileserver)
 	http.HandleFunc("/hello", handlers.HelloHandler)
 	http.HandleFunc("/form", handlers.FormHandler)
+	http.HandleFunc("/login", handlers.LoginHandler)
 
 	// Obtém o IP local da máquina
 	addrs, err := net.InterfaceAddrs()

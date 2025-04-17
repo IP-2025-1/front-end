@@ -1,4 +1,3 @@
-// filepath: /Users/matheusaugustodepaulasoares/UFG/front-end/app/handlers/formHandler.go
 package handlers
 
 import (
