@@ -1,4 +1,4 @@
-module front-end
+module servidorHTTP
 
 go 1.24.1
 
