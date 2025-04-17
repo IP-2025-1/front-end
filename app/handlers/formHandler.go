@@ -1,50 +1,33 @@
+// filepath: /Users/matheusaugustodepaulasoares/UFG/front-end/app/handlers/formHandler.go
 package handlers
 
 import (
-	"fmt"
-	"net/http"
-	"strconv"
-
-	util "front-end/app/utils"
+    "front-end/app/utils"
+    "net/http"
 )
 
 func FormHandler(response http.ResponseWriter, request *http.Request) {
-	if err := request.ParseForm(); err != nil {
-		fmt.Fprintf(response, "ParseForm() err: %v", err)
-		return
-	}
+    if request.Method != http.MethodPost {
+        http.Error(response, "Método não suportado", http.StatusMethodNotAllowed)
+        return
+    }
 
-	username := request.FormValue("username")
+    // Obtém os valores do formulário
+    username := request.FormValue("username")
+    email := request.FormValue("email")
+    bornDate := request.FormValue("bornDate")
+    password := request.FormValue("password")
 
-	ticketid := util.GenerateTicketID(7)
+    // Criptografa a senha
+    encryptedPassword := utils.Encrypt(password)
 
-	fmt.Fprintf(response, "Hello "+username+"\n")
-	eventname := request.FormValue("eventname")
-	eventlocation := request.FormValue("eventlocation")
-	ticketprice := request.FormValue("ticketprice")
-	ticketquantity := request.FormValue("ticketquantity")
+    // Insere os dados no banco de dados
+    err := utils.InsertUser(username, email, bornDate, encryptedPassword)
+    if err != nil {
+        http.Error(response, "Erro ao salvar os dados no banco de dados", http.StatusInternalServerError)
+        return
+    }
 
-	price, err := strconv.ParseFloat(ticketprice, 64)
-	if err != nil {
-		fmt.Fprintf(response, "Error converting ticket price: %v", err)
-		return
-	}
-
-	// Convert ticketquantity to int
-	quantity, err := strconv.Atoi(ticketquantity)
-	if err != nil {
-		fmt.Fprintf(response, "Error converting ticket quantity: %v", err)
-		return
-	}
-
-	// Calculate total cost
-	totalCost := price * float64(quantity)
-
-	fmt.Fprintf(response, "Event Name = %s\n", eventname)
-	fmt.Fprintf(response, "Your Ticket ID is %s\n", ticketid)
-	fmt.Fprintf(response, "You're off to %s\n", eventlocation)
-	fmt.Fprintf(response, "Ticket Price = %s\n", ticketprice)
-	fmt.Fprintf(response, "Ticket Quantity = %s\n", ticketquantity)
-	fmt.Fprintf(response, "Total Cost = %.2f\n", totalCost)
-
+    // Redireciona para a página inicial após o sucesso
+    http.Redirect(response, request, "/index.html", http.StatusSeeOther)
 }

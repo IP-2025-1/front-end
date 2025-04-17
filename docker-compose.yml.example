@@ -1,0 +1,10 @@
+services:
+  postgres:
+    container_name: 
+    image: postgres
+    ports:
+      - 
+    environment:
+      - POSTGRES_USER=
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=

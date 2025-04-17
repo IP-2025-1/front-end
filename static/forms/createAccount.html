@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor HTTP em GoLang</title>
+    <link rel="stylesheet" href="../styles/createAccount.style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h3>Crie a sua conta</h3>
+        <form method="POST" action="/form">
+            <div>
+                <label>Nome:</label>
+                <input name="username" placeholder="Digite o seu nome aqui" value="" type="text">
+            </div>
+            <div>
+                <label>E-mail:</label>
+                <input name="email" placeholder="Digite o seu e-mail aqui" value="" type="text">
+            </div>
+            <div>
+                <label>Data de nascimento:</label>
+                <input name="bornDate" value="" type="date">
+            </div>
+            <div>
+                <label>Senha:</label>
+                <input name="password" placeholder="Digite a sua senha aqui" value="" type="password">
+            </div>
+
+            <button type="submit"><span>Concluir</span></button>
+        </form>
+    </div>
+
+</body>
+
+</html>
