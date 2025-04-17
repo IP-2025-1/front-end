@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apagar Conta</title>
+    <link rel="stylesheet" href="../styles/deleteAccount.style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h3>Apagar Conta</h3>
+        <form method="POST" action="/deleteAccount">
+            <div>
+                <label>E-mail:</label>
+                <input name="email" placeholder="Digite o seu e-mail" type="text" required>
+            </div>
+            <div>
+                <label>Senha:</label>
+                <input name="password" placeholder="Digite a sua senha" type="password" required>
+            </div>
+            <button type="submit"><span>Apagar Conta</span></button>
+        </form>
+    </div>
+</body>
+
+</html>

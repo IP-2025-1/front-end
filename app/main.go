@@ -21,6 +21,7 @@ func main() {
 	http.HandleFunc("/form", handlers.FormHandler)
 	http.HandleFunc("/login", handlers.LoginHandler)
 	http.HandleFunc("/updateAccount", handlers.UpdateAccountHandler)
+	http.HandleFunc("/deleteAccount", handlers.DeleteAccountHandler)
 
 	// Obtém o IP local da máquina
 	addrs, err := net.InterfaceAddrs()
