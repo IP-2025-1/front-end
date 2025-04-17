@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Dados da Conta</title>
+    <link rel="stylesheet" href="../styles/updateAccount.style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h3>Atualize os dados da sua conta</h3>
+        <form method="POST" action="/updateAccount">
+            <div>
+                <label>Nome:</label>
+                <input name="username" placeholder="Digite o novo nome (opcional)" type="text">
+            </div>
+            <div>
+                <label>E-mail:</label>
+                <input name="email" placeholder="Digite o novo e-mail (opcional)" type="text">
+            </div>
+            <div>
+                <label>Data de nascimento:</label>
+                <input name="bornDate" placeholder="Digite a nova data de nascimento (opcional)" type="date">
+            </div>
+            <div>
+                <label>Nova senha:</label>
+                <input name="newPassword" placeholder="Digite a nova senha (opcional)" type="password">
+            </div>
+            <div>
+                <label>Email atual:</label>
+                <input name="currentEmail" placeholder="Digite a senha atual" type="text" required>
+            </div>
+            <div>
+                <label>Senha atual:</label>
+                <input name="currentPassword" placeholder="Digite a senha atual" type="password" required>
+            </div>
+            <button type="submit"><span>Atualizar</span></button>
+        </form>
+    </div>
+</body>
+
+</html>

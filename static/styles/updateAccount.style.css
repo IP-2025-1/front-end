@@ -1,0 +1,87 @@
+:root {
+    --primary-color: #0072b9;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --form-background: #fff;
+    --form-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    background-color: var(--form-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--form-shadow);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+form label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+    transform: scale(1.01);
+    transition: all .5s ease-in-out;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {  
+    transform: scale(1.01);
+    transition: all .5s ease-in-out;
+}
