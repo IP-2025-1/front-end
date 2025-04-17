@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor HTTP em GoLang</title>
+    <link rel="stylesheet" href="../styles/login.style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h3>Entre na sua conta</h3>
+        <form method="POST" action="/login">
+            <div>
+                <label>E-mail:</label>
+                <input name="email" placeholder="Digite o seu e-mail aqui" value="" type="text">
+            </div>
+            <div>
+                <label>Senha:</label>
+                <input name="password" placeholder="Digite a sua senha aqui" value="" type="password">
+            </div>
+
+            <button type="submit"><span>Concluir</span></button>
+        </form>
+    </div>
+
+</body>
+
+</html>

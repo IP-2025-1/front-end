@@ -5,25 +5,29 @@ import (
     "net/http"
 )
 
-func FormHandler(response http.ResponseWriter, request *http.Request) {
+func DeleteAccountHandler(response http.ResponseWriter, request *http.Request) {
     if request.Method != http.MethodPost {
         http.Error(response, "Método não suportado", http.StatusMethodNotAllowed)
         return
     }
 
-    // Obtém os valores do formulário
-    username := request.FormValue("username")
     email := request.FormValue("email")
-    bornDate := request.FormValue("bornDate")
     password := request.FormValue("password")
 
     // Criptografa a senha
     encryptedPassword := utils.Encrypt(password)
 
-    // Insere os dados no banco de dados
-    err := utils.InsertUser(username, email, bornDate, encryptedPassword)
+    // Verifica se o usuário existe no banco de dados
+    isValidUser, err := utils.ValidateUser(email, encryptedPassword)
+    if err != nil || !isValidUser {
+        http.Error(response, "Credenciais inválidas", http.StatusUnauthorized)
+        return
+    }
+
+    // Remove o usuário do banco de dados
+    err = utils.DeleteUser(email)
     if err != nil {
-        http.Error(response, "Erro ao salvar os dados no banco de dados", http.StatusInternalServerError)
+        http.Error(response, "Erro ao apagar a conta", http.StatusInternalServerError)
         return
     }
 
