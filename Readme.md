@@ -7,6 +7,21 @@ Para configurar o ambiente de desenvolvimento, deve-se criar um arquivo .env (vi
 
 Como banco de dados, deve-se utilizar o PostgreSQL.
 
+### Criando a tabela de usuários
+
+O modelo para a criação da tabela de usuários é regido pelo seguinte SQL
+
+```
+    CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    born_date DATE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
 ---
 
 ## Servidor HTTP e Rotas
@@ -20,4 +35,3 @@ A pasta static serve para armazenar os arquivos estáticos da aplicação, HTML 
 
 ### Pasta app
 A pasta app serve para armazenar arquivos do servidor, handlers para lidar com formulários e requisições do front-end, utils serve para criar funções de auxílio para as handlers.
-
